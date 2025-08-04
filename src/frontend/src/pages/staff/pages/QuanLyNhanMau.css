@@ -1,0 +1,80 @@
+/* QuanLyNhanMau.css */
+.quan-ly-nhan-mau {
+    padding: 20px;
+}
+
+.tab-container {
+    margin: 16px 0;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-button.active {
+    background: #1976d2;
+    color: #fff;
+}
+
+.tab-button.inactive {
+    background: #eee;
+    color: #000;
+}
+
+.tab-content {
+    margin-top: 24px;
+}
+
+.no-permission {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    padding: 40px;
+    background-color: #ffe6e6;
+    border: 1px solid #ffcccc;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+/* Styles cho tab lịch sử */
+.tab-button.lichsu {
+    position: relative;
+}
+
+.tab-button.lichsu::after {
+    content: '📋';
+    margin-left: 6px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .quan-ly-nhan-mau {
+        padding: 10px;
+    }
+
+    .tab-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tab-button {
+        width: 100%;
+        padding: 12px 16px;
+        text-align: center;
+        min-width: 120px;
+    }
+}

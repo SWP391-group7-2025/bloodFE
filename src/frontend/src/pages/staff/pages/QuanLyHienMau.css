@@ -1,0 +1,1645 @@
+/* Giao diện khung chính */
+.container {
+  width: 100vw;
+  max-width: 100%;
+  padding: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  margin: 15px auto;
+  overflow-x: auto;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  min-height: calc(100vh - 40px);
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e74c3c 0%, #c0392b 50%, #e74c3c 100%);
+  border-radius: 16px 16px 0 0;
+}
+
+/* Tab Navigation Styles */
+.tab-navigation {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e8ecf0;
+  background: #f8f9fb;
+  border-radius: 12px 12px 0 0;
+  padding: 8px;
+  gap: 4px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 16px 24px;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #64748b;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tab-button:hover {
+  background: rgba(231, 76, 60, 0.08);
+  color: #e74c3c;
+  transform: translateY(-1px);
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+  transform: translateY(-1px);
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #e74c3c;
+}
+
+.tab-content {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Tiêu đề */
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+  border-radius: 2px;
+}
+
+/* Bọc bảng khi cần cuộn ngang */
+.appointment-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e8ecf0;
+}
+
+/* Bảng */
+.appointment-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1200px;
+  font-size: 14px;
+  background: white;
+}
+
+.appointment-table th,
+.appointment-table td {
+  border: none;
+  border-bottom: 1px solid #e8ecf0;
+  padding: 16px 12px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.appointment-table th {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.appointment-table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.appointment-table tbody tr:hover {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-table tr:nth-child(even) {
+  background-color: #f8f9fb;
+}
+
+.appointment-table tr:hover {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%) !important;
+}
+
+/* Nút chung */
+.btn-view,
+.btn-back,
+.appointment-table button {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 4px 2px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-view::before,
+.btn-back::before,
+.appointment-table button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-view:hover::before,
+.btn-back:hover::before,
+.appointment-table button:hover::before {
+  left: 100%;
+}
+
+.btn-view:hover,
+.btn-back:hover,
+.appointment-table button:hover {
+  background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.btn-back {
+  margin-bottom: 15px;
+  display: inline-block;
+  background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.btn-back:hover {
+  background: linear-gradient(135deg, #5a6268 0%, #495057 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
+}
+
+/* === DONOR TABLE STYLING (Trang hiển thị danh sách người hiến máu) === */
+
+/* Wrapper cho bảng donor - loại bỏ scrollbar ngang */
+.donor-table-wrapper {
+  width: 100%;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e8ecf0;
+  margin-top: 10px;
+  position: relative;
+}
+
+.donor-table-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e74c3c 0%, #c0392b 50%, #e74c3c 100%);
+  border-radius: 16px 16px 0 0;
+}
+
+/* Bảng donor chính - loại bỏ min-width để vừa khít container */
+.donor-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 14px;
+  background: white;
+  margin-top: 4px;
+}
+
+.donor-table th,
+.donor-table td {
+  border: none;
+  border-bottom: 1px solid #f1f3f4;
+  padding: 10px 6px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+}
+
+/* Định nghĩa chiều rộng cột cụ thể - tối ưu để vừa khít màn hình */
+.donor-table th:nth-child(1),
+.donor-table td:nth-child(1) {
+  width: 10%;
+}
+
+/* Tên */
+.donor-table th:nth-child(2),
+.donor-table td:nth-child(2) {
+  width: 15%;
+}
+
+/* Email */
+.donor-table th:nth-child(3),
+.donor-table td:nth-child(3) {
+  width: 9%;
+}
+
+/* Phone */
+.donor-table th:nth-child(4),
+.donor-table td:nth-child(4) {
+  width: 12%;
+}
+
+/* Address */
+.donor-table th:nth-child(5),
+.donor-table td:nth-child(5) {
+  width: 5%;
+}
+
+/* Blood Group */
+.donor-table th:nth-child(6),
+.donor-table td:nth-child(6) {
+  width: 9%;
+}
+
+/* Last donation */
+.donor-table th:nth-child(7),
+.donor-table td:nth-child(7) {
+  width: 7%;
+}
+
+/* Status */
+.donor-table th:nth-child(8),
+.donor-table td:nth-child(8) {
+  width: 8%;
+}
+
+/* Time */
+.donor-table th:nth-child(9),
+.donor-table td:nth-child(9) {
+  width: 25%;
+}
+
+/* Actions - tăng để chứa buttons */
+
+/* Header của donor table */
+.donor-table th {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  position: sticky;
+  top: 4px;
+  z-index: 15;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.2);
+  padding: 10px 6px;
+}
+
+.donor-table th:first-child {
+  border-radius: 0 0 0 12px;
+}
+
+.donor-table th:last-child {
+  border-radius: 0 0 12px 0;
+}
+
+/* Rows của donor table */
+.donor-table tbody tr {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+}
+
+.donor-table tbody tr:nth-child(even) {
+  background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%);
+}
+
+.donor-table tbody tr:hover {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.15);
+  z-index: 5;
+}
+
+/* Cells đặc biệt - tăng font size cho dễ đọc */
+.donor-table td:nth-child(1) {
+  /* Tên */
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.donor-table td:nth-child(2) {
+  /* Email */
+  color: #3498db;
+  font-family: monospace;
+  font-size: 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.donor-table td:nth-child(3) {
+  /* Phone */
+  font-family: monospace;
+  font-weight: 500;
+  color: #27ae60;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.donor-table td:nth-child(4) {
+  /* Address */
+  text-align: left;
+  color: #7f8c8d;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.donor-table td:nth-child(5) {
+  /* Blood Group */
+  font-weight: 700;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.donor-table td:nth-child(6) {
+  /* Last donation */
+  color: #8e44ad;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.donor-table td:nth-child(7) {
+  /* Status */
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.donor-table td:nth-child(8) {
+  /* Time */
+  color: #e67e22;
+  font-weight: 600;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.donor-table td:nth-child(9) {
+  /* Actions - tăng độ rộng để chứa đầy đủ buttons */
+  width: 25%;
+}
+
+/* Container cho action buttons trong donor table - tăng padding */
+.donor-table .action-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  flex-wrap: wrap;
+}
+
+/* Blood type styling trong donor table */
+.donor-table td:nth-child(5) {
+  position: relative;
+}
+
+/* Status indicators */
+.donor-status-donated {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  color: #155724;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #c3e6cb;
+}
+
+.donor-status-scheduled {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  color: #856404;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #ffeaa7;
+}
+
+/* Scrollbar cho donor table */
+.donor-table-wrapper::-webkit-scrollbar {
+  height: 10px;
+}
+
+.donor-table-wrapper::-webkit-scrollbar-track {
+  background: #f8f9fa;
+  border-radius: 5px;
+}
+
+.donor-table-wrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  border-radius: 5px;
+}
+
+.donor-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+}
+
+/* === ACTION BUTTONS TRONG DONOR TABLE === */
+
+/* Container cho action buttons trong donor table */
+.donor-table .action-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Enhanced styling cho nút "Sửa thông tin" trong donor table - tăng font size */
+.donor-table .action-buttons button:not(.btn-complete-donation):not(.btn-add-blood) {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(23, 162, 184, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 75px;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.donor-table .action-buttons button:not(.btn-complete-donation):not(.btn-add-blood):hover {
+  background: linear-gradient(135deg, #138496 0%, #117a8b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(23, 162, 184, 0.4);
+}
+
+.donor-table .action-buttons button:not(.btn-complete-donation):not(.btn-add-blood):before {
+  content: '✏️';
+  font-size: 11px;
+}
+
+/* Enhanced completed status trong donor table - tăng font size */
+.donor-table .completed-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 8px;
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 4px rgba(21, 87, 36, 0.2);
+  white-space: nowrap;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 2px 6px rgba(21, 87, 36, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 4px 12px rgba(21, 87, 36, 0.4);
+  }
+
+  100% {
+    box-shadow: 0 2px 6px rgba(21, 87, 36, 0.2);
+  }
+}
+
+.donor-table .completed-status:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(21, 87, 36, 0.4);
+}
+
+/* Enhanced btn-complete-donation trong donor table - tăng font size */
+.donor-table .btn-complete-donation {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 75px;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  box-shadow: 0 2px 6px rgba(40, 167, 69, 0.4);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.donor-table .btn-complete-donation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.donor-table .btn-complete-donation:hover::before {
+  left: 100%;
+}
+
+.donor-table .btn-complete-donation:hover {
+  background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.6);
+}
+
+.donor-table .btn-complete-donation:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* === SPECIAL VISUAL ENHANCEMENTS CHO DONOR TABLE === */
+
+/* Header animation */
+.donor-table th {
+  position: relative;
+  overflow: hidden;
+}
+
+.donor-table th::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: headerShine 3s infinite;
+}
+
+@keyframes headerShine {
+  0% {
+    left: -100%;
+  }
+
+  50% {
+    left: 100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* Blood type special styling */
+.donor-table tbody tr td:nth-child(5) {
+  font-family: 'Courier New', monospace;
+  position: relative;
+}
+
+/* Add blood drop animation for blood types */
+.donor-table tbody tr:hover td:nth-child(5)::after {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: bloodDrop 1s ease-in-out;
+}
+
+@keyframes bloodDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(0%);
+  }
+}
+
+/* Email hover effect */
+.donor-table tbody tr td:nth-child(2):hover {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  cursor: pointer;
+  border-radius: 8px;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+/* Phone hover effect */
+.donor-table tbody tr td:nth-child(3):hover {
+  background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+  cursor: pointer;
+  border-radius: 8px;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+/* Time slot highlighting */
+.donor-table tbody tr td:nth-child(8) {
+  position: relative;
+  background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+  border-radius: 8px;
+  margin: 4px;
+}
+
+.donor-table tbody tr:hover td:nth-child(8) {
+  background: linear-gradient(135deg, #ffecb3 0%, #ffd54f 100%);
+  box-shadow: inset 0 2px 8px rgba(255, 193, 7, 0.3);
+}
+
+/* Modal nền */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal nội dung */
+.modal-content {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 32px;
+  border-radius: 20px;
+  width: 500px;
+  max-width: 90vw;
+  text-align: left;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e74c3c 0%, #c0392b 50%, #e74c3c 100%);
+  border-radius: 20px 20px 0 0;
+}
+
+.modal-content h3 {
+  margin-bottom: 24px;
+  color: #2c3e50;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #34495e;
+  font-size: 14px;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e8ecf0;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  outline: none;
+  border-color: #e74c3c;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.modal-content input[style*="border-color: red"],
+.modal-content select[style*="border-color: red"] {
+  border-color: #ff4444 !important;
+}
+
+.modal-content button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+.modal-content button[style*="background: #f44336"],
+.modal-content button:first-of-type {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.modal-content button[style*="background: #f44336"]:hover,
+.modal-content button:first-of-type:hover {
+  background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.modal-content button[style*="background: #ccc"] {
+  background: #6c757d !important;
+  color: white;
+}
+
+.modal-content button[style*="background: #ccc"]:hover {
+  background: #5a6268 !important;
+  transform: translateY(-2px);
+}
+
+.modal-content button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Action buttons container */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Nút hoàn thành hiến máu */
+.btn-complete-donation {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.btn-complete-donation:hover {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+/* Nút thêm máu vào kho */
+.btn-add-blood {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.btn-add-blood:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* Thông báo blood addition */
+.message {
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  margin: 20px 0;
+  text-align: center;
+  animation: slideIn 0.3s ease;
+}
+
+.message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive cho action buttons */
+@media (max-width: 768px) {
+  .container {
+    margin: 10px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .tab-navigation {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .tab-button {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .appointment-table-wrapper {
+    border-radius: 8px;
+    margin: 0 -16px;
+  }
+
+  .appointment-table {
+    font-size: 12px;
+    min-width: 800px;
+  }
+
+  .appointment-table th,
+  .appointment-table td {
+    padding: 8px 6px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .btn-complete-donation,
+  .btn-add-blood {
+    min-width: 120px;
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  /* Donor table responsive - vừa khít màn hình tablet */
+  .donor-table-wrapper {
+    border-radius: 12px;
+    margin: 15px -16px 0 -16px;
+  }
+
+  .donor-table {
+    font-size: 11px;
+    table-layout: fixed;
+  }
+
+  .donor-table th,
+  .donor-table td {
+    padding: 6px 3px;
+    font-size: 10px;
+  }
+
+  .donor-table .action-buttons {
+    gap: 3px;
+    flex-direction: row;
+  }
+
+  .donor-table .action-buttons button {
+    font-size: 9px;
+    padding: 4px 6px;
+    min-width: 60px;
+  }
+
+  .donor-table .btn-complete-donation {
+    font-size: 9px;
+    padding: 4px 6px;
+    min-width: 60px;
+  }
+
+  .donor-table .completed-status {
+    font-size: 9px;
+    padding: 4px 6px;
+  }
+
+  .modal-content {
+    width: 95vw;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 5px;
+    padding: 12px;
+  }
+
+  .tab-button {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .appointment-table {
+    font-size: 11px;
+  }
+
+  .appointment-table th,
+  .appointment-table td {
+    padding: 6px 4px;
+  }
+
+  /* Donor table mobile - vừa khít màn hình mobile */
+  .donor-table {
+    font-size: 10px;
+    table-layout: fixed;
+  }
+
+  .donor-table th,
+  .donor-table td {
+    padding: 4px 2px;
+    font-size: 9px;
+  }
+
+  .donor-table .action-buttons {
+    gap: 2px;
+    flex-direction: row;
+  }
+
+  .donor-table .action-buttons button {
+    font-size: 8px;
+    padding: 3px 4px;
+    min-width: 45px;
+  }
+
+  .donor-table .btn-complete-donation {
+    font-size: 8px;
+    padding: 3px 4px;
+    min-width: 45px;
+  }
+
+  .donor-table .completed-status {
+    font-size: 8px;
+    padding: 3px 4px;
+  }
+
+  .modal-content {
+    padding: 16px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Loading và animations bổ sung */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Hover effects for completed status */
+.completed-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  transition: all 0.3s ease;
+}
+
+.completed-status:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(21, 87, 36, 0.2);
+}
+
+/* Enhanced scrollbar styling */
+.appointment-table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.appointment-table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.appointment-table-wrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  border-radius: 4px;
+}
+
+.appointment-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+}
+
+/* Blood type indicators */
+.blood-type-indicator {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.blood-type-A {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+.blood-type-B {
+  background: #e3f2fd;
+  color: #1565c0;
+  border: 1px solid #90caf9;
+}
+
+.blood-type-AB {
+  background: #f3e5f5;
+  color: #7b1fa2;
+  border: 1px solid #ce93d8;
+}
+
+.blood-type-O {
+  background: #e8f5e8;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-scheduled {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.status-donated {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-cancelled {
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Floating action button style for critical actions */
+.fab-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+}
+
+.fab-button:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 12px 35px rgba(231, 76, 60, 0.6);
+}
+
+/* Print styles */
+@media print {
+
+  .tab-navigation,
+  .btn-view,
+  .btn-back,
+  .appointment-table button,
+  .fab-button {
+    display: none !important;
+  }
+
+  .container {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  .appointment-table {
+    font-size: 12px;
+  }
+
+  .appointment-table th {
+    background: #f0f0f0 !important;
+    color: #000 !important;
+  }
+}
+
+/* Styles cho phần tìm kiếm */
+.search-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Search mode selector */
+.search-mode-selector {
+  margin-bottom: 20px;
+}
+
+.mode-buttons {
+  display: flex;
+  gap: 8px;
+  background: #f1f3f4;
+  padding: 4px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.mode-btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c757d;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.mode-btn:hover {
+  background: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+}
+
+.mode-btn.active {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  box-shadow: 0 2px 4px rgba(231, 76, 60, 0.3);
+}
+
+.search-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.date-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.date-search label {
+  font-weight: 600;
+  color: #495057;
+  min-width: 160px;
+}
+
+/* Date range search styles */
+.date-range-search {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.date-range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.date-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.date-input-group label {
+  font-weight: 600;
+  color: #495057;
+  font-size: 14px;
+}
+
+.date-range-separator {
+  font-size: 18px;
+  font-weight: bold;
+  color: #6c757d;
+  margin: 0 8px;
+  align-self: flex-end;
+  margin-bottom: 8px;
+}
+
+.date-input {
+  padding: 10px 14px;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.btn-clear-search {
+  padding: 8px 12px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  white-space: nowrap;
+}
+
+.btn-clear-search:hover {
+  background: #c82333;
+  transform: scale(1.05);
+}
+
+.quick-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.quick-search-label {
+  font-weight: 600;
+  color: #495057;
+  margin-right: 8px;
+}
+
+.btn-quick-search {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-quick-search:hover {
+  background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.search-info {
+  border-top: 1px solid #dee2e6;
+  padding-top: 12px;
+}
+
+.search-result-info {
+  color: #6c757d;
+  font-size: 14px;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-result-info::before {
+  content: "ℹ️";
+  font-style: normal;
+}
+
+.no-data {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .search-controls {
+    gap: 12px;
+  }
+
+  .date-search {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .date-search label {
+    min-width: auto;
+  }
+
+  .date-range-inputs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .date-range-separator {
+    align-self: center;
+    transform: rotate(90deg);
+    margin: 8px 0;
+  }
+
+  .quick-search {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .quick-search-label {
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+
+  .mode-buttons {
+    width: 100%;
+  }
+
+  .mode-btn {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* Date Search Styles */
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.page-title h2 {
+  margin: 0;
+}
+
+.date-search-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.date-search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-input-group label {
+  font-size: 12px;
+  color: #6c757d;
+  margin-bottom: 2px;
+}
+
+.date-input-group input {
+  padding: 5px 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.reset-search-btn {
+  padding: 6px 12px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.reset-search-btn:hover {
+  background-color: #5a6268;
+}
+
+.search-results-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-results-badge {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  border: 1px solid #c3e6cb;
+  display: inline-block;
+}
+
+.no-results-message {
+  text-align: center;
+  padding: 20px;
+  color: #6c757d;
+}
+
+.no-results-message .sub-text {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Status text styles */
+.status-text {
+  color: #6c757d;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.status-text.past {
+  color: #dc3545;
+}
+
+.status-text.future {
+  color: #ffc107;
+}
