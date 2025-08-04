@@ -1,0 +1,40 @@
+.summary-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.summary-card {
+    background: #f7f9fb;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px #0001;
+    padding: 20px 28px;
+    min-width: 200px;
+    flex: 1 1 calc(33.333% - 24px);
+    max-width: calc(33.333% - 24px);
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: box-shadow 0.2s;
+}
+
+.summary-card:nth-child(n+4) {
+    flex: 1 1 calc(50% - 24px);
+    max-width: calc(50% - 24px);
+}
+
+.summary-title {
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 6px;
+}
+
+.summary-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #222e3c;
+}
