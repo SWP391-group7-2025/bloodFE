@@ -1,0 +1,418 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+}
+
+.modalContent {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 1000px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 2px solid #f0f0f0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px 12px 0 0;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.closeIcon {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.closeIcon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.content {
+    padding: 24px;
+}
+
+.bagsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.bagCard {
+    border: 2px solid #e3f2fd;
+    border-radius: 12px;
+    padding: 20px;
+    background: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.bagCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2196f3, #21cbf3);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.bagCard:hover {
+    border-color: #2196f3;
+    box-shadow: 0 8px 25px rgba(33, 150, 243, 0.15);
+    transform: translateY(-2px);
+}
+
+.bagCard:hover::before {
+    transform: scaleX(1);
+}
+
+.bagCard.selected {
+    border-color: #4caf50;
+    background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+}
+
+.bagCard.selected::before {
+    background: linear-gradient(90deg, #4caf50, #66bb6a);
+    transform: scaleX(1);
+}
+
+.bagHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.bagId {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.urgencyBadge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bagInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.primaryInfo {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 12px;
+    align-items: center;
+}
+
+.bloodType {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.component {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.volume {
+    background: #f3e5f5;
+    color: #7b1fa2;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.secondaryInfo {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 4px solid #2196f3;
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.infoRow:last-child {
+    margin-bottom: 0;
+}
+
+.label {
+    font-weight: 600;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.value {
+    color: #333;
+    font-weight: 500;
+}
+
+.bagActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detailsButton {
+    background: linear-gradient(135deg, #2196f3, #21cbf3);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.detailsButton:hover {
+    background: linear-gradient(135deg, #1976d2, #1ba3d3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.selectedIndicator {
+    color: #4caf50;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+}
+
+.footer {
+    padding: 20px 24px;
+    border-top: 2px solid #f0f0f0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    background: #fafafa;
+    border-radius: 0 0 12px 12px;
+}
+
+.cancelButton,
+.confirmButton {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 120px;
+}
+
+.cancelButton {
+    background: #6c757d;
+    color: white;
+}
+
+.cancelButton:hover {
+    background: #5a6268;
+    transform: translateY(-1px);
+}
+
+.confirmButton {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+}
+
+.confirmButton:hover:not(:disabled) {
+    background: linear-gradient(135deg, #218838, #1ca085);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.confirmButton:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.noBags {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.noBagsIcon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.noBags p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.noBags small {
+    color: #888;
+}
+
+.loading,
+.error {
+    text-align: center;
+    padding: 40px 24px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2196f3;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 16px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.error p {
+    color: #f44336;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.closeButton {
+    background: #2196f3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.closeButton:hover {
+    background: #1976d2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modalContent {
+        width: 95%;
+        margin: 10px;
+    }
+
+    .bagsList {
+        grid-template-columns: 1fr;
+    }
+
+    .primaryInfo {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .header {
+        padding: 16px 20px;
+    }
+
+    .header h2 {
+        font-size: 1.2rem;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .footer {
+        padding: 16px 20px;
+        flex-direction: column;
+    }
+
+    .cancelButton,
+    .confirmButton {
+        width: 100%;
+    }
+
+    .bagActions {
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+    }
+
+    .detailsButton {
+        width: 100%;
+    }
+}

@@ -1,0 +1,147 @@
+/* ContactForm hiện đại đồng bộ với thiết kế tổng thể */
+/* New modern contact section */
+.contact-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+  padding: 48px 0 64px 0;
+  border-radius: 32px;
+  max-width: 900px;
+  margin: 48px auto;
+  box-shadow: 0 8px 32px rgba(30, 64, 175, 0.10);
+  font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 60%, #06b6d4 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 36px 40px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 24px rgba(30, 64, 175, 0.10);
+}
+
+.contact-icon {
+  background: #fff;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(30, 64, 175, 0.10);
+}
+
+.contact-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.contact-desc {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin-bottom: 0;
+}
+
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 40px;
+  box-shadow: 0 2px 12px rgba(30, 64, 175, 0.06);
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 8px;
+}
+
+.info-label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 2px;
+  letter-spacing: 0.2px;
+}
+
+.info-value {
+  font-size: 1.08rem;
+  color: #374151;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.info-value:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 968px) {
+  .contact-section {
+    padding: 24px 0 32px 0;
+    border-radius: 24px;
+    margin: 24px auto;
+  }
+  .contact-card, .contact-info-grid {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+  .contact-title {
+    font-size: 1.5rem;
+  }
+  .contact-info-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 12px 0 16px 0;
+    border-radius: 14px;
+    margin: 12px auto;
+  }
+  .contact-card, .contact-info-grid {
+    padding: 14px 8px;
+    border-radius: 10px;
+  }
+  .contact-title {
+    font-size: 1.1rem;
+  }
+  .contact-info-grid {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 4px 0 8px 0;
+    border-radius: 8px;
+    margin: 4px auto;
+  }
+  .contact-card, .contact-info-grid {
+    padding: 6px 2px;
+    border-radius: 6px;
+  }
+  .contact-title {
+    font-size: 0.95rem;
+  }
+}

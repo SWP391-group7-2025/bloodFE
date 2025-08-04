@@ -1,0 +1,318 @@
+.banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('../../assets/images/bhead.jpg') no-repeat center center/cover;
+    min-height: 350px;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    overflow: visible !important;
+    position: static !important;
+    padding: 20px;
+    gap: 20px;
+}
+
+.dateSearchBox {
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px 36px;
+    text-align: left;
+    color: #222;
+    min-width: 100px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+    overflow: visible !important;
+    position: static !important;
+}
+
+.dateLabel {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+}
+
+.dateIcon {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.dateInputGroup {
+    display: flex;
+    align-items: center;
+    overflow: visible !important;
+    position: static !important;
+}
+
+.dateInput {
+    padding: 14px 18px;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 210px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dateInput:focus {
+    outline: none;
+    border-color: #4285f4;
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+}
+
+.dateSeparator {
+    color: #888;
+    font-size: 1.2rem;
+}
+
+.dateSearchBtn {
+    background: linear-gradient(135deg, #4285f4, #3367d6);
+    color: #fff;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 12px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(66, 133, 244, 0.2);
+}
+
+.dateSearchBtn:hover {
+    background: linear-gradient(135deg, #3367d6, #2a56c6);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+
+.dateSearchBtn:active {
+    transform: translateY(0);
+}
+
+/* Style tăng z-index cho popup React-datepicker */
+.customDatepickerPopper {
+    z-index: 1050 !important;
+    margin-top: 4px !important;
+}
+
+/* Các style cho React-datepicker */
+.customDatepickerCalendar {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    font-size: 1rem;
+    border: none;
+    overflow: hidden;
+}
+
+.customDatepickerWrapper {
+    width: 100%;
+}
+
+/* Custom styles cho React DatePicker */
+:global(.react-datepicker) {
+    font-family: inherit;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+:global(.react-datepicker__header) {
+    background: linear-gradient(135deg, #4285f4, #3367d6);
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    padding: 16px 0;
+}
+
+:global(.react-datepicker__current-month) {
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+:global(.react-datepicker__navigation) {
+    top: 18px;
+}
+
+:global(.react-datepicker__navigation--previous) {
+    border-right-color: white;
+}
+
+:global(.react-datepicker__navigation--next) {
+    border-left-color: white;
+}
+
+:global(.react-datepicker__day-name) {
+    color: #666;
+    font-weight: 600;
+    margin: 0.3rem;
+    font-size: 0.9rem;
+}
+
+:global(.react-datepicker__day) {
+    margin: 0.3rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+:global(.react-datepicker__day:hover) {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+:global(.react-datepicker__day--selected) {
+    background: linear-gradient(135deg, #4285f4, #3367d6);
+    color: white;
+    font-weight: 600;
+}
+
+:global(.react-datepicker__day--keyboard-selected) {
+    background: linear-gradient(135deg, #4285f4, #3367d6);
+    color: white;
+}
+
+:global(.react-datepicker__day--today) {
+    background: #fff3e0;
+    color: #f57c00;
+    font-weight: 600;
+}
+
+:global(.react-datepicker__day--disabled) {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+:global(.react-datepicker__day--disabled:hover) {
+    background: transparent;
+    color: #ccc;
+}
+
+:global(.react-datepicker__triangle) {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dateSearchBox {
+        padding: 20px 24px;
+        margin: 0 16px;
+    }
+    
+    .dateInputGroup {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .dateInput {
+        width: 100%;
+    }
+    
+    .dateSearchBtn {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .dateSeparator {
+        display: none;
+    }
+}
+
+/* Recovery Notification Styles */
+.recoveryNotification {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 16px 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    color: #333;
+    max-width: 500px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.canDonateMessage {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.recoveryMessage {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.recoveryIcon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.recoveryText {
+    flex: 1;
+    text-align: left;
+}
+
+.recoveryText strong {
+    color: #2c5aa0;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.recoveryText p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.recoveryText small {
+    color: #666;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.daysHighlight {
+    font-weight: bold;
+    color: #d32f2f;
+    background: rgba(211, 47, 47, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.canDonateMessage .recoveryIcon {
+    color: #4caf50;
+}
+
+.canDonateMessage .recoveryText strong {
+    color: #4caf50;
+}
+
+.recoveryMessage .recoveryIcon {
+    color: #ff9800;
+}
+
+/* Responsive for recovery notification */
+@media (max-width: 768px) {
+    .recoveryNotification {
+        padding: 12px 16px;
+        margin-bottom: 15px;
+    }
+    
+    .recoveryIcon {
+        font-size: 1.3rem;
+    }
+    
+    .recoveryText strong {
+        font-size: 1rem;
+    }
+    
+    .recoveryText p {
+        font-size: 0.9rem;
+    }
+    
+    .recoveryText small {
+        font-size: 0.8rem;
+    }
+}

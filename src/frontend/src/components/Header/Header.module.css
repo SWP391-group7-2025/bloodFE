@@ -1,0 +1,386 @@
+/* Header xanh dương tích cực cho website hiến máu */
+.header {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #06b6d4 100%);
+    box-shadow: 0 4px 25px rgba(30, 64, 175, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    gap: 40px;
+}
+
+/* Brand Section */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 200px;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(30, 64, 175, 0.15);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+}
+
+.brandText {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.brandName {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.3px;
+}
+
+.brandSlogan {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    justify-content: center;
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    white-space: nowrap;
+}
+
+.navLink:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.navLink.activeLink {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgba(6, 182, 212, 0.2);
+}
+
+.navLink.activeLink::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 1px;
+}
+
+.navIcon {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* User Section */
+.userSection {
+    min-width: 200px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Auth Buttons */
+.authButtons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.loginBtn {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.loginBtn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.registerBtn {
+    color: #1e40af;
+    background: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 8px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(30, 64, 175, 0.15);
+}
+
+.registerBtn:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);
+}
+
+/* User Dropdown */
+.userDropdown {
+    position: relative;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.userInfo:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.userAvatar {
+    background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+    color: #ffffff;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.userDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.userName {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.userRole {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+
+.userDistance {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+    margin-top: 1px;
+}
+
+.dropdownArrow {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown Menu */
+.dropdownMenu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    z-index: 1000;
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: #374151;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.dropdownItem:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.dropdownItem span:first-child {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.logoutItem {
+    color: #dc2626;
+}
+
+.logoutItem:hover {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.dropdownDivider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 8px 0;
+}
+
+/* Partner Navigation */
+.partnerNav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        padding: 10px 16px;
+        gap: 30px;
+    }
+    
+    .brandName {
+        font-size: 1.2rem;
+    }
+    
+    .brandSlogan {
+        font-size: 0.7rem;
+    }
+    
+    .navLink {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 968px) {
+    .container {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .brand {
+        min-width: auto;
+    }
+    
+    .nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    
+    .userSection {
+        min-width: auto;
+    }
+    
+    .navLink {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .brandText {
+        display: none;
+    }
+    
+    .navLink span:last-child {
+        display: none;
+    }
+    
+    .navIcon {
+        font-size: 1.2rem;
+    }
+    
+    .userDetails {
+        display: none;
+    }
+    
+    .dropdownMenu {
+        right: -20px;
+        min-width: 160px;
+    }
+}

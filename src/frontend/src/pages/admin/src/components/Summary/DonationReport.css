@@ -1,0 +1,291 @@
+/* DonationReport.css */
+.donation-report {
+    padding: 24px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.donation-report__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 32px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.donation-report__title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+    border-radius: 2px;
+}
+
+.donation-report__filters {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 1px solid #e9ecef;
+}
+
+.donation-report__filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 120px;
+}
+
+.donation-report__filter-label {
+    font-weight: 600;
+    color: #495057;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.donation-report__filter-input {
+    padding: 12px 16px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2c3e50;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.donation-report__filter-input:focus {
+    outline: none;
+    border-color: #e74c3c;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.donation-report__filter-input:hover {
+    border-color: #dc3545;
+    background: #ffffff;
+}
+
+.donation-report__content {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+}
+
+.donation-report__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    font-size: 18px;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.donation-report__loading::after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #e74c3c;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 12px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.donation-report__no-data {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6c757d;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.donation-report__no-data::before {
+    content: '📋';
+    display: block;
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.donation-report__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #ffffff;
+}
+
+.donation-report__table-header {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.donation-report__table-header th {
+    padding: 16px 12px;
+    text-align: left;
+    border-bottom: 2px solid #c0392b;
+    font-size: 13px;
+}
+
+.donation-report__table-row {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #f1f3f4;
+}
+
+.donation-report__table-row:hover {
+    background: linear-gradient(135deg, #fff5f5 0%, #fef7f7 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.1);
+}
+
+.donation-report__table-row:last-child {
+    border-bottom: none;
+}
+
+.donation-report__table-cell {
+    padding: 16px 12px;
+    color: #2c3e50;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.donation-report__table-cell--name {
+    font-weight: 600;
+    color: #e74c3c;
+}
+
+.donation-report__table-cell--blood-group {
+    font-weight: 700;
+    color: #dc3545;
+    text-align: center;
+    background: rgba(220, 53, 69, 0.1);
+    border-radius: 6px;
+    margin: 4px;
+    padding: 8px 12px;
+}
+
+.donation-report__table-cell--component {
+    font-style: italic;
+    color: #495057;
+}
+
+.donation-report__table-cell--date {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.donation-report__table-cell--expiry {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #856404;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .donation-report {
+        padding: 16px;
+    }
+
+    .donation-report__title {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .donation-report__filters {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .donation-report__filter-group {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .donation-report__table {
+        font-size: 12px;
+    }
+
+    .donation-report__table-header th {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+
+    .donation-report__table-cell {
+        padding: 12px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .donation-report__table-header th,
+    .donation-report__table-cell {
+        padding: 8px 4px;
+        font-size: 11px;
+    }
+
+    .donation-report__table-cell--blood-group {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .donation-report {
+        background: white;
+        padding: 20px;
+    }
+
+    .donation-report__filters {
+        display: none;
+    }
+
+    .donation-report__content {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+
+    .donation-report__table-row:hover {
+        background: transparent;
+        transform: none;
+        box-shadow: none;
+    }
+}

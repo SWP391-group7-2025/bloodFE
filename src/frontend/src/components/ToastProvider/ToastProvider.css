@@ -1,0 +1,122 @@
+/* Custom Toast Styles */
+.custom-toast {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.custom-toast-body {
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 0;
+}
+
+.custom-toast-progress {
+    height: 3px;
+}
+
+/* Success Toast */
+.Toastify__toast--success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.Toastify__toast--success .Toastify__toast-icon {
+    color: #ffffff;
+}
+
+/* Error Toast */
+.Toastify__toast--error {
+    background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+}
+
+.Toastify__toast--error .Toastify__toast-icon {
+    color: #ffffff;
+}
+
+/* Warning Toast */
+.Toastify__toast--warning {
+    background: linear-gradient(135deg, #ffc107 0%, #f39c12 100%);
+    color: #000;
+}
+
+.Toastify__toast--warning .Toastify__toast-icon {
+    color: #000;
+}
+
+/* Info Toast */
+.Toastify__toast--info {
+    background: linear-gradient(135deg, #17a2b8 0%, #3498db 100%);
+}
+
+.Toastify__toast--info .Toastify__toast-icon {
+    color: #ffffff;
+}
+
+/* Loading Toast */
+.Toastify__toast--loading {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+}
+
+/* Close button */
+.Toastify__close-button {
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 0.8;
+}
+
+.Toastify__close-button:hover {
+    opacity: 1;
+}
+
+/* Progress bar colors */
+.Toastify__progress-bar--success {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.Toastify__progress-bar--error {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.Toastify__progress-bar--warning {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.Toastify__progress-bar--info {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .Toastify__toast-container {
+        width: 95vw;
+        padding: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .custom-toast {
+        margin-bottom: 8px;
+    }
+}
+
+/* Animation enhancements */
+.Toastify__toast-enter {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.Toastify__toast-enter-active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.Toastify__toast-exit {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.Toastify__toast-exit-active {
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}

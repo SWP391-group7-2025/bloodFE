@@ -1,0 +1,581 @@
+/* PartnerEmergencyRequest.module.css */
+/* Professional and modern styling for emergency blood request form */
+/* Matching the blue theme design system of the project */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+  min-height: 100vh;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 60%, #06b6d4 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(30, 64, 175, 0.15);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.headerIcon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.header p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  margin: 0;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
+/* Form Section */
+.formSection {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 8px 32px rgba(30, 64, 175, 0.08);
+  border: 1px solid rgba(30, 64, 175, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.formSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #1e40af, #3b82f6, #06b6d4, #0891b2);
+  background-size: 300% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.formHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #f8f9fa;
+}
+
+.formIcon {
+  font-size: 2rem;
+  color: #1e40af;
+  background: linear-gradient(135deg, #f0f9ff, #dbeafe);
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(30, 64, 175, 0.15);
+}
+
+.formHeader h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Form Layout */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Input Groups */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.fieldLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.fieldIcon {
+  color: #1e40af;
+  font-size: 1.1rem;
+  min-width: 20px;
+}
+
+.helperText {
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-weight: 400;
+  font-style: italic;
+  margin-left: 0.5rem;
+}
+
+/* Input Fields */
+.inputField,
+.selectField,
+.textareaField {
+  padding: 1rem 1.25rem;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fff;
+  font-family: inherit;
+  /* Remove default browser styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.inputField:focus,
+.selectField:focus,
+.textareaField:focus {
+  outline: none !important;
+  border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+  transform: translateY(-2px);
+}
+
+.inputField:hover,
+.selectField:hover,
+.textareaField:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.1);
+}
+
+.selectField {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  padding-right: 3rem;
+  /* Ensure no default select arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.textareaField {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+/* Date Input Group */
+.dateInputGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.dateSelect {
+  padding: 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fff;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.8rem center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  padding-right: 3rem;
+  /* Remove default browser styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.dateSelect:focus {
+  outline: none !important;
+  border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+.dateSelect:hover {
+  border-color: #3b82f6;
+}
+
+.datePreview {
+  margin-top: 0.5rem;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border-radius: 10px;
+  border-left: 4px solid #06b6d4;
+}
+
+.datePreview small {
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Button Group */
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #f8f9fa;
+}
+
+/* Buttons */
+.submitBtn,
+.cancelBtn,
+.historyBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  min-width: 200px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  color: white;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+}
+
+.submitBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.6);
+  background: linear-gradient(135deg, #b91c1c, #dc2626);
+}
+
+.submitBtn:active {
+  transform: translateY(-1px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+}
+
+.cancelBtn {
+  background: linear-gradient(135deg, #6c757d, #5a6268);
+  color: white;
+  box-shadow: 0 4px 15px rgba(108, 117, 125, 0.4);
+}
+
+.cancelBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(108, 117, 125, 0.6);
+  background: linear-gradient(135deg, #5a6268, #6c757d);
+}
+
+.historyBtn {
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  color: white;
+  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.4);
+}
+
+.historyBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.6);
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+}
+
+.btnIcon {
+  font-size: 1.1rem;
+}
+
+/* Loading State */
+.submitBtn:disabled .btnIcon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .header {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .header p {
+    font-size: 1rem;
+  }
+  
+  .formSection {
+    padding: 2rem 1.5rem;
+  }
+  
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .dateInputGroup {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .submitBtn,
+  .cancelBtn,
+  .historyBtn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .header {
+    padding: 1rem;
+    border-radius: 15px;
+  }
+  
+  .header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .headerIcon {
+    font-size: 2.5rem;
+  }
+  
+  .formSection {
+    padding: 1.5rem 1rem;
+    border-radius: 15px;
+  }
+  
+  .formHeader h2 {
+    font-size: 1.5rem;
+  }
+  
+  .inputField,
+  .selectField,
+  .textareaField,
+  .dateSelect {
+    padding: 0.8rem 1rem;
+  }
+}
+
+/* Accessibility Improvements */
+.inputField:focus-visible,
+.selectField:focus-visible,
+.textareaField:focus-visible,
+.dateSelect:focus-visible {
+  outline: none !important; /* Remove the second blue outline */
+  outline-offset: 0;
+}
+
+.submitBtn:focus-visible,
+.cancelBtn:focus-visible,
+.historyBtn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Error States - Remove red border validation styling */
+.inputField:invalid,
+.selectField:invalid,
+.textareaField:invalid {
+  /* Remove automatic red border on invalid state */
+  border-color: #e9ecef;
+  box-shadow: none;
+}
+
+/* Success States - Keep green for valid inputs */
+.inputField:valid,
+.selectField:valid,
+.textareaField:valid {
+  border-color: #e9ecef; /* Use default border instead of green */
+}
+
+/* Hover Effects for Interactive Elements */
+.inputGroup:hover .fieldIcon {
+  color: #1d4ed8;
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+/* Custom Scrollbar for Select Options */
+.selectField::-webkit-scrollbar {
+  width: 8px;
+}
+
+.selectField::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.selectField::-webkit-scrollbar-thumb {
+  background: #1e40af;
+  border-radius: 4px;
+}
+
+.selectField::-webkit-scrollbar-thumb:hover {
+  background: #1d4ed8;
+}
+
+/* Form validation styling */
+.required {
+  color: #dc2626;
+}
+
+/* Tooltip styling for helper text */
+.helperText::before {
+  content: "💡 ";
+  margin-right: 0.25rem;
+}
+
+/* Enhanced focus indicators */
+*:focus {
+  scroll-margin-top: 100px;
+}
+
+/* Modern glass effect for important sections */
+.formSection::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+/* Enhanced button animations */
+.submitBtn::before,
+.historyBtn::before,
+.cancelBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.submitBtn:hover::before,
+.historyBtn:hover::before,
+.cancelBtn:hover::before {
+  left: 100%;
+}
+
+/* Success animation for form completion - Remove the pulse effect */
+.inputField:valid {
+  border-color: #e9ecef; /* Use default border color */
+  /* Remove animation: successPulse 2s infinite; */
+}
+
+/* Print styles */
+@media print {
+  .container {
+    background: white;
+    box-shadow: none;
+    padding: 1rem;
+  }
+  
+  .header {
+    background: #f8f9fa !important;
+    color: #2c3e50 !important;
+    box-shadow: none;
+  }
+  
+  .buttonGroup {
+    display: none;
+  }
+}

@@ -1,0 +1,75 @@
+/* Khung tổng */
+.standards-wrapper {
+    background-color: #e0f3ff;
+    border: 2px solid #0077cc;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    /* margin-top */
+}
+
+/* Tiêu đề */
+.standards-title {
+    text-align: center;
+    font-size: 24px;
+    color: #0077cc;
+    margin-bottom: 24px;
+}
+
+/* Lưới các tiêu chí */
+.standards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: stretch;
+    /* Đảm bảo các ô trong cùng hàng có chiều cao bằng nhau */
+}
+
+/* Mỗi ô tiêu chuẩn */
+.standards-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+
+    height: 100%;
+    /* Chiều cao bằng chiều cao hàng */
+    min-height: 150px;
+    /* Chiều cao tối thiểu cho các ô */
+    box-sizing: border-box;
+}
+
+/* Icon trong mỗi ô */
+.standards-box .icon {
+    color: #0077cc;
+    font-size: 30px;
+    flex-shrink: 0;
+}
+
+/* Văn bản */
+.standards-box p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* Responsive: 2 cột nếu màn hình nhỏ hơn 900px */
+@media (max-width: 900px) {
+    .standards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsive: 1 cột nếu màn hình nhỏ hơn 600px */
+@media (max-width: 600px) {
+    .standards-container {
+        grid-template-columns: 1fr;
+    }
+}

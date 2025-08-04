@@ -1,0 +1,715 @@
+/* BloodInfo.module.css */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 8px 32px rgba(251, 251, 251, 0.3);
+}
+
+.title {
+    font-size: 2.5rem;
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: white;
+}
+
+.icon {
+    font-size: 3rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.section {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.sectionTitle {
+    font-size: 1.8rem;
+    margin: 0 0 1.5rem 0;
+    color: #dc3545;
+    font-weight: 600;
+    border-bottom: 3px solid #dc3545;
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: #495057;
+}
+
+.info p {
+    margin: 0.8rem 0;
+}
+
+.info strong {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+.info ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.info li {
+    margin: 0.5rem 0;
+    color: #6c757d;
+}
+
+.tableContainer {
+    margin: 2rem 0;
+}
+
+.tableTitle {
+    font-size: 1.3rem;
+    margin: 0 0 1rem 0;
+    color: #343a40;
+    font-weight: 600;
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.compatibilityTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.compatibilityTable th {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.compatibilityTable td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+    transition: background-color 0.3s ease;
+}
+
+.compatibilityTable tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.compatibilityTable tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.compatibilityTable tbody tr:nth-child(odd) {
+    background-color: white;
+}
+
+.bloodType {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #dc3545;
+    background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%) !important;
+}
+
+.universal {
+    font-weight: 700;
+    color: #28a745;
+    background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%) !important;
+}
+
+.dualTable {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.tableHalf h4 {
+    text-align: center;
+    color: #495057;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.summaryTable {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.summaryTable th {
+    background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+    color: white;
+    padding: 1.2rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.summaryTable td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.summaryTable tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.checkMark {
+    color: #28a745;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.crossMark {
+    color: #dc3545;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.priority {
+    color: #ffc107;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.warningSection {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 2px solid #ffc107;
+    box-shadow: 0 4px 20px rgba(255, 193, 7, 0.3);
+}
+
+.warningTitle {
+    font-size: 1.8rem;
+    margin: 0 0 1.5rem 0;
+    color: #856404;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    justify-content: center;
+}
+
+.warningBox {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid #ffc107;
+}
+
+.warningBox ul {
+    margin: 0;
+    padding-left: 2rem;
+    line-height: 1.8;
+}
+
+.warningBox li {
+    margin: 0.8rem 0;
+    color: #856404;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .icon {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .dualTable {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .compatibilityTable th,
+    .compatibilityTable td,
+    .summaryTable th,
+    .summaryTable td {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .tableTitle {
+        font-size: 1.1rem;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .header {
+        padding: 1.5rem;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .compatibilityTable th,
+    .compatibilityTable td,
+    .summaryTable th,
+    .summaryTable td {
+        padding: 0.6rem 0.3rem;
+        font-size: 0.8rem;
+    }
+
+    .section {
+        padding: 1rem;
+    }
+
+    .info {
+        font-size: 0.9rem;
+    }
+}
+
+/* Search Section Styles */
+.searchSection {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    color: white;
+    box-shadow: 0 8px 32px rgba(0, 123, 255, 0.3);
+}
+
+.searchTitle {
+    font-size: 1.8rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.searchSubtitle {
+    text-align: center;
+    margin: 0 0 2rem 0;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+.searchForm {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    align-items: end;
+    margin-bottom: 2rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.select {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.select:focus {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+}
+
+.select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.note {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.searchButton {
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.searchButton:hover:not(:disabled) {
+    background: linear-gradient(135deg, #218838 0%, #1ea085 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(40, 167, 69, 0.4);
+}
+
+.searchButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.searchResult {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: #333;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.resultTitle {
+    font-size: 1.4rem;
+    margin: 0 0 1rem 0;
+    color: #007bff;
+    font-weight: 600;
+}
+
+.resultInfo {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #007bff;
+}
+
+.resultInfo p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.compatibleList h4 {
+    margin: 0 0 1rem 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.bloodTypeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 0.75rem;
+}
+
+.compatibleBloodType {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+    transition: all 0.3s ease;
+}
+
+.compatibleBloodType:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+/* Responsive for search section */
+@media (max-width: 768px) {
+    .searchForm {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .searchSection {
+        padding: 1.5rem;
+    }
+
+    .searchTitle {
+        font-size: 1.5rem;
+    }
+
+    .bloodTypeGrid {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .compatibleBloodType {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .searchSection {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .searchTitle {
+        font-size: 1.3rem;
+    }
+
+    .searchSubtitle {
+        font-size: 0.9rem;
+    }
+
+    .resultInfo {
+        padding: 0.8rem;
+    }
+
+    .resultInfo p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Donor Search Styles */
+.donorSearchSection {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.donorSearchTitle {
+    color: #2c3e50;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.donorSearchButton {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: background-color 0.2s;
+}
+
+.donorSearchButton:hover:not(:disabled) {
+    background-color: #45a049;
+}
+
+.donorSearchButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.errorMessage {
+    color: #f44336;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    background-color: #ffebee;
+    border-radius: 4px;
+}
+
+.donorResults {
+    margin-top: 1rem;
+}
+
+.donorList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.donorCard {
+    background-color: white;
+    padding: 1.25rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #eee;
+}
+
+.donorCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.donorInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.donorName {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.donorEmail,
+.donorDistance {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.donorBloodType {
+    color: #e53935;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+.donorLastDonation {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+.noResults {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* Responsive Design for Donor Search */
+@media (max-width: 768px) {
+    .donorList {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .donorSearchSection {
+        padding: 1rem;
+    }
+
+    .donorSearchTitle {
+        font-size: 1.1rem;
+    }
+
+    .donorSearchButton {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .errorMessage {
+        font-size: 0.8rem;
+    }
+
+    .donorInfo {
+        gap: 0.3rem;
+    }
+
+    .donorName {
+        font-size: 1rem;
+    }
+
+    .donorEmail,
+    .donorDistance {
+        font-size: 0.8rem;
+    }
+
+    .noResults {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+}
